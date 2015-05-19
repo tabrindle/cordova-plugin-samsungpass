@@ -24,7 +24,6 @@ public class SamsungPassPlugin extends CordovaPlugin {
     private SpassFingerprint mSpassFingerprint;
     private boolean isFeatureEnabled = false;
     private static final String TAG = "SamsungPassPlugin";
-    private SpassFingerprint.IdentifyListener listener;
 
     @Override
     public void initialize(final CordovaInterface cordova, CordovaWebView webView) {
@@ -56,6 +55,8 @@ public class SamsungPassPlugin extends CordovaPlugin {
             this.checkSamsungPassSupport(args, callbackContext);
         } else if (action.equals("checkForRegisteredFingers")) {
             this.checkForRegisteredFingers(args, callbackContext);
+        } else if (action.equals("startIdentifyWithDialog")) {
+            this.startIdentifyWithDialog(args, callbackContext);
         }
         else {
             return false;
@@ -90,18 +91,25 @@ public class SamsungPassPlugin extends CordovaPlugin {
 
         mSpassFingerprint.setDialogTitle("Authentificate yourself!", 0xff0000);
 
-        listener = new SpassFingerprint.IdentifyListener() {
+        SpassFingerprint.IdentifyListener listener = new SpassFingerprint.IdentifyListener() {
             @Override
             public void onFinished(int eventStatus) {
+                Log.d(TAG, "identify finished : reason=" + eventStatus);
+
                 if (eventStatus == SpassFingerprint.STATUS_AUTHENTIFICATION_SUCCESS) {
-                    callbackContext.success();
+                     Log.d(TAG, "onFinished() : Identify authentification Success");
+                     //callbackContext.success();
                 } else if (eventStatus == SpassFingerprint.STATUS_AUTHENTIFICATION_PASSWORD_SUCCESS) {
-                    callbackContext.success();
+                     //callbackContext.success();
                 } else {
-                    callbackContext.error("Error");
+                     Log.d(TAG, "onFinished() : Authentification Fail for identify");
+                     //callbackContext.error("Error");
                 }
-                
             }
+            @Override
+            public void onReady() {}
+            @Override
+            public void onStarted() {}
         };
 
         mSpassFingerprint.startIdentifyWithDialog(this.cordova.getActivity().getApplicationContext(), listener, false);
