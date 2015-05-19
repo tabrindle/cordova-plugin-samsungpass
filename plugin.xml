@@ -14,7 +14,7 @@
             </feature>
         </config-file>
         <source-file src="src/android/SamsungPassPlugin.java" target-dir="src/com/cordova/plugin/samsung/pass/SamsungPassPlugin.java" />
-        <source-file src="src/android/pass-v1.1.3.jar" target-dir="libs/pass-v1.1.3.jar" />
-        <source-file src="src/android/sdk-v1.0.0.jar" target-dir="libs/sdk-v1.0.0.jar" />
+        <source-file src="src/android/pass-v1.1.3.jar" target-dir="libs/" />
+        <source-file src="src/android/sdk-v1.0.0.jar" target-dir="libs/" />
     </platform>
 </plugin>
