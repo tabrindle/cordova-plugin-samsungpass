@@ -11,12 +11,22 @@ SamsungPass.prototype.GenericFailureCallback = function(response) {
 };
 
 SamsungPass.prototype.checkSamsungPassSupport = function(SuccessCallback, FailureCallback) {
-    console.log('Check Support');
+    console.log('checkSamsungPassSupport');
 
     if (SuccessCallback && FailureCallback) {
         cordova.exec(SuccessCallback, FailureCallback, 'SamsungPassPlugin', 'checkSamsungPassSupport', []);
     } else {
         cordova.exec(SamsungPass.GenericSuccessCallback, SamsungPass.GenericFailureCallback, 'SamsungPassPlugin', 'checkSamsungPassSupport', []);
+    }
+};
+
+SamsungPass.prototype.checkForRegisteredFingers = function(SuccessCallback, FailureCallback) {
+    console.log('checkForRegisteredFingers');
+
+    if (SuccessCallback && FailureCallback) {
+        cordova.exec(SuccessCallback, FailureCallback, 'SamsungPassPlugin', 'checkForRegisteredFingers', []);
+    } else {
+        cordova.exec(SamsungPass.GenericSuccessCallback, SamsungPass.GenericFailureCallback, 'SamsungPassPlugin', 'checkForRegisteredFingers', []);
     }
 };
 
