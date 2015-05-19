@@ -1,4 +1,4 @@
-package com.cordova.plugin.samsung.pass;
+package com.cordova.plugin;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaArgs;
@@ -23,7 +23,6 @@ public class SamsungPassPlugin extends CordovaPlugin {
     private Spass mSpass;
     private SpassFingerprint mSpassFingerprint;
     private boolean isFeatureEnabled = false;
-    private CallbackContext callbackContext = null;
     private static final String TAG = "SamsungPassPlugin";
 
     @Override
@@ -50,12 +49,10 @@ public class SamsungPassPlugin extends CordovaPlugin {
 
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         
-        this.callbackContext = callbackContext;
-
-        Log.d(TAG, callbackContext.getCallbackId() + ": " + action);
+        Log.d(TAG, "Plugin Method Called: " + action);
 
         if (action.equals("CheckSamsungPassSupport")) {
-            this.checkSamsungPassSupport();
+            this.checkSamsungPassSupport(args, callbackContext);
         }
         else {
             return false;
@@ -64,7 +61,13 @@ public class SamsungPassPlugin extends CordovaPlugin {
         return true;
     }
 
-    private void checkSamsungPassSupport() {
-         this.callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
+    private void checkSamsungPassSupport(JSONArray args, CallbackContext callbackContext) {
+        Log.d(TAG, "checkSamsungPassSupport");
+
+        if (isFeatureEnabled) {
+            callbackContext.success();
+        } else {
+            callbackContext.error("Error");
+        }
     }
 }

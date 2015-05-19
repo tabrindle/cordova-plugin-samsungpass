@@ -11,7 +11,7 @@ SamsungPass.prototype.GenericFailureCallback = function(response) {
 };
 
 SamsungPass.prototype.checkSamsungPassSupport = function(SuccessCallback, FailureCallback) {
-    console.log('checkSamsungPassSupport');
+    console.log('Check Support');
 
     if (SuccessCallback && FailureCallback) {
         cordova.exec(SuccessCallback, FailureCallback, 'SamsungPassPlugin', 'checkSamsungPassSupport', []);
