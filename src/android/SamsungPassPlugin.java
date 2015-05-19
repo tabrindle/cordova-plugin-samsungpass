@@ -6,7 +6,10 @@ import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.PluginResult;
+
 import org.json.JSONException;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import android.util.Log;
 
@@ -20,6 +23,7 @@ public class SamsungPassPlugin extends CordovaPlugin {
     private Spass mSpass;
     private SpassFingerprint mSpassFingerprint;
     private boolean isFeatureEnabled = false;
+    private CallbackContext callbackContext = null;
     private static final String TAG = "SamsungPassPlugin";
 
     @Override
