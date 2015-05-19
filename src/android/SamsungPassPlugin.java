@@ -53,6 +53,8 @@ public class SamsungPassPlugin extends CordovaPlugin {
 
         if (action.equals("checkSamsungPassSupport")) {
             this.checkSamsungPassSupport(args, callbackContext);
+        } else if (action.equals("checkForRegisteredFingers")) {
+            this.checkForRegisteredFingers(args, callbackContext);
         }
         else {
             return false;
@@ -65,6 +67,18 @@ public class SamsungPassPlugin extends CordovaPlugin {
         Log.d(TAG, "checkSamsungPassSupport");
 
         if (isFeatureEnabled) {
+            callbackContext.success();
+        } else {
+            callbackContext.error("Error");
+        }
+    }
+
+    private void checkForRegisteredFingers(JSONArray args, CallbackContext callbackContext) {
+        Log.d(TAG, "checkForRegisteredFingers");
+
+        boolean mHasRegisteredFinger = mSpassFingerprint.hasRegisteredFinger();
+
+        if (mHasRegisteredFinger) {
             callbackContext.success();
         } else {
             callbackContext.error("Error");
