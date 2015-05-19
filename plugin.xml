@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.cordova.plugin.samsung.pass" version="1.0.0">
-    <name>SamsungPass</name>
+    <name>SamsungPassPlugin</name>
     <description>Implements Fingerprint Scanning with Samsung devices.</description>
     <author>Trevor Brindle (https://github.com/tabrindle)</author>
     <repo>https://github.com/tabrindle/cordova-plugin-samsungpass.git</repo>
     <platform name="android">
-        <js-module src="www/SamsungPass.js" name="SamsungPass">
+        <js-module src="www/SamsungPass.js" name="SamsungPassPlugin">
             <clobbers target="SamsungPass" />
         </js-module>
         <config-file target="res/xml/config.xml" parent="/*">
