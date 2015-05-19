@@ -13,8 +13,8 @@
                 <param name="android-package" value="com.cordova.plugin.SamsungPassPlugin" />
             </feature>
         </config-file>
-        <config-file target="AndroidManifest.xml" parent="/manifest">
-           <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
         </config-file>
         <source-file src="src/android/SamsungPassPlugin.java" target-dir="src/com/cordova/plugin/" />
         <source-file src="src/android/pass-v1.1.3.jar" target-dir="libs/" />
