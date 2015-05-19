@@ -85,4 +85,17 @@ public class SamsungPassPlugin extends CordovaPlugin {
         }
     }
 
+    private void startIdentifyWithDialog(JSONArray args, CallbackContext callbackContext) {
+
+        mSpassFingerprint.setDialogTitle("Authentificate yourself!", 0xff0000);
+
+        mSpassFingerprint.startIdentifyWithDialog(this.cordova.getActivity().getApplicationContext(), listener, false);
+
+        private SpassFingerprint.IdentifyListener listener = new SpassFingerprint.IdentifyListener() {
+            @Override
+            public void onFinished(int eventStatus) {
+                callbackContext.success(eventStatus);
+            }
+        };
+    }
 }

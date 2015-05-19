@@ -30,5 +30,15 @@ SamsungPass.prototype.checkForRegisteredFingers = function(SuccessCallback, Fail
     }
 };
 
+SamsungPass.prototype.startIdentifyWithDialog = function(SuccessCallback, FailureCallback) {
+    console.log('startIdentifyWithDialog');
+
+    if (SuccessCallback && FailureCallback) {
+        cordova.exec(SuccessCallback, FailureCallback, 'SamsungPassPlugin', 'startIdentifyWithDialog', []);
+    } else {
+        cordova.exec(SamsungPass.GenericSuccessCallback, SamsungPass.GenericFailureCallback, 'SamsungPassPlugin', 'startIdentifyWithDialog', []);
+    }
+};
+
 var SamsungPass = new SamsungPass();
 module.exports = SamsungPass;
