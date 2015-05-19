@@ -51,7 +51,7 @@ public class SamsungPassPlugin extends CordovaPlugin {
         
         Log.d(TAG, "Plugin Method Called: " + action);
 
-        if (action.equals("CheckSamsungPassSupport")) {
+        if (action.equals("checkSamsungPassSupport")) {
             this.checkSamsungPassSupport(args, callbackContext);
         }
         else {
@@ -70,4 +70,5 @@ public class SamsungPassPlugin extends CordovaPlugin {
             callbackContext.error("Error");
         }
     }
+
 }
