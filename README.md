@@ -28,3 +28,21 @@ SamsungPass.startIdentifyWithDialog();
 
 ## Example
 
+Success and Failure callbacks are defaulted so if you like, you may pass an empty function call like this:
+
+```
+SamsungPass.checkSamsungPassSupport();
+```
+
+If you require more than just a log, then pass functions like this:
+
+```
+SamsungPass.checkForRegisteredFingers(function() {
+  console.log('CheckForRegisteredFingersWithSamsungPass Success');
+  //do something funny
+}, function() {
+  console.log('CheckForRegisteredFingersWithSamsungPass Failure');
+  //do something sad
+});
+```
+
