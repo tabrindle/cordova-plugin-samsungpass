@@ -1,0 +1,27 @@
+{
+  "name": "cordova-plugin-samsungpass",
+  "version": "1.0.0",
+  "description": "Cordova Plugin for Samsung Pass",
+  "main": "config.xml",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://tabrindle@github.com/tabrindle/cordova-plugin-samsungpass.git"
+  },
+  "keywords": [
+    "Samsung",
+    "Pass",
+    "SamsungPass",
+    "Fingerprint",
+    "Cordova",
+    "Phonegap"
+  ],
+  "author": "Trevor Brindle <tabrindle@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tabrindle/cordova-plugin-samsungpass/issues"
+  },
+  "homepage": "https://github.com/tabrindle/cordova-plugin-samsungpass#readme"
+}
