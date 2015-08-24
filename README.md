@@ -1,9 +1,8 @@
+## Installation
 
-cordova plugin add https://github.com/tabrindle/cordova-plugin-samsungpass.git
-
+```cordova plugin add https://github.com/tabrindle/cordova-plugin-samsungpass.git```
 OR 
-
-npm install cordova-plugin-samsungpass
+```npm install cordova-plugin-samsungpass```
 
 ## Support
 - Android
