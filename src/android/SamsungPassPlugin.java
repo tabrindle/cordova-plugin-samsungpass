@@ -33,18 +33,19 @@ public class SamsungPassPlugin extends CordovaPlugin {
         try {
             mSpass.initialize(this.cordova.getActivity().getApplicationContext());
             Log.d(TAG, "Spass was Initialized");
+
+            isFeatureEnabled = mSpass.isFeatureEnabled(Spass.DEVICE_FINGERPRINT);
+
+            if (isFeatureEnabled) {
+                mSpassFingerprint = new SpassFingerprint(this.cordova.getActivity().getApplicationContext());
+                Log.d(TAG, "mSpassFingerprint was Initialized");
+            } else {
+                Log.d(TAG, "Fingerprint Service is not supported in the device.");
+            }
         } catch (SsdkUnsupportedException e) {
             Log.d(TAG, "Spass could not initialize" + e);
         }
 
-        isFeatureEnabled = mSpass.isFeatureEnabled(Spass.DEVICE_FINGERPRINT);
-        
-        if (isFeatureEnabled) {
-            mSpassFingerprint = new SpassFingerprint(this.cordova.getActivity().getApplicationContext());
-            Log.d(TAG, "mSpassFingerprint was Initialized");
-        } else {
-            Log.d(TAG, "Fingerprint Service is not supported in the device.");
-        }
     }
 
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
